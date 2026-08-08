@@ -2,7 +2,38 @@
   <Folder Name="/01/">
     <Project Path="numberIsEvenOrNot/numberIsEvenOrNot.csproj" />
   </Folder>
-  <Folder Name="/02/" />
+  <Folder Name="/02/">
+    <Project Path="largerNumber/largerNumber.csproj" />
+  </Folder>
   <Folder Name="/03/" />
   <Folder Name="/04/" />
+  <Folder Name="/05/" />
+  <Folder Name="/06/" />
+  <Folder Name="/07/" />
+  <Folder Name="/08/" />
+  <Folder Name="/09/" />
+  <Folder Name="/10/" />
+  <Folder Name="/11/" />
+  <Folder Name="/12/" />
+  <Folder Name="/13/" />
+  <Folder Name="/14/" />
+  <Folder Name="/15/" />
+  <Folder Name="/16/" />
+  <Folder Name="/17/" />
+  <Folder Name="/18/" />
+  <Folder Name="/19/" />
+  <Folder Name="/20/" />
+  <Folder Name="/21/" />
+  <Folder Name="/22/" />
+  <Folder Name="/23/" />
+  <Folder Name="/24/" />
+  <Folder Name="/25/" />
+  <Folder Name="/26/" />
+  <Folder Name="/27/" />
+  <Folder Name="/28/" />
+  <Folder Name="/29/" />
+  <Folder Name="/30/" />
+  <Folder Name="/Shared/">
+    <Project Path="Shared/Shared.csproj" />
+  </Folder>
 </Solution>
