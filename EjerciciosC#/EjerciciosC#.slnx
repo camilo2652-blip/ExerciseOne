@@ -8,7 +8,9 @@
   <Folder Name="/03/">
     <Project Path="OrderingOfThreeNumbers/OrderingOfThreeNumbers.csproj" Id="cee396ad-6d2d-4efa-8e4a-8d39e44d955c" />
   </Folder>
-  <Folder Name="/04/" />
+  <Folder Name="/04/">
+    <Project Path="IsMultipleOfAnother/IsMultipleOfAnother.csproj" Id="39a4bd04-beea-4de4-8870-723926058585" />
+  </Folder>
   <Folder Name="/05/" />
   <Folder Name="/06/" />
   <Folder Name="/07/" />
