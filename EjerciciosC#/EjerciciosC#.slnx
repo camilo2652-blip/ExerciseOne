@@ -5,7 +5,9 @@
   <Folder Name="/02/">
     <Project Path="largerNumber/largerNumber.csproj" />
   </Folder>
-  <Folder Name="/03/" />
+  <Folder Name="/03/">
+    <Project Path="OrderingOfThreeNumbers/OrderingOfThreeNumbers.csproj" Id="cee396ad-6d2d-4efa-8e4a-8d39e44d955c" />
+  </Folder>
   <Folder Name="/04/" />
   <Folder Name="/05/" />
   <Folder Name="/06/" />
