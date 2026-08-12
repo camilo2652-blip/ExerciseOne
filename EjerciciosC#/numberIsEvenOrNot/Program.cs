@@ -1,23 +1,26 @@
 ﻿
+using Shared;
 
+var answer = string.Empty;
+var options = new List<string> { "s", "n" };
 do
 {
-    Console.Write("Ingrese número o Ctrl + c para salir: ");
-    var numberString = Console.ReadLine();
-    try
-    {
-        var numberInt = int.Parse(numberString!);
-        if (numberInt % 2 == 0) 
+    var number = ConsoleExtension.GetInt("Ingrese número entero: ");
+
+    
+        if (number % 2 == 0) 
         {
-            Console.WriteLine($"El número: {numberInt} es par.");
+            Console.WriteLine($"El número: {number} es par.");
         }
         else
         {
-            Console.WriteLine($"El número: {numberInt} es impar.");
+            Console.WriteLine($"El número: {number} es impar.");
         }
-    }
-    catch 
+    
+    do 
     {
-        Console.WriteLine($"El número: {numberString} no es válido. Solo utilice carácteres numéricos");
-    }
-} while (true); 
+      answer = ConsoleExtension.GetValidOptions("Desea continuar [S]í, [N]O?: ", options);
+    }while (!options.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)));
+
+} while (answer!.Equals("s", StringComparison.CurrentCultureIgnoreCase));
+Console.WriteLine("Game over");
