@@ -28,5 +28,6 @@ do
     {
         answer = ConsoleExtension.GetValidOptions("Deseas continuar [S]i [n]o?: ", options);
     } while (!options.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)));
-} while (answer!.Equals("s", StringComparison.CurrentCultureIgnoreCase));
 
+} while (answer!.Equals("s", StringComparison.CurrentCultureIgnoreCase));
+Console.WriteLine("Game over");
