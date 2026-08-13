@@ -6,21 +6,8 @@ var options = new List<string> { "s", "n" };
 do
 {
     var desks = ConsoleExtension.GetInt("Número de escritorios: ");
-    float discount;
-    if (desks < 5)
-    {
-        discount = 0.1f;
-    }
-    else if (desks < 10) 
-    {
-        discount = 0.2f;
-    }
-    else
-    {
-        discount = 0.4f;
-    }
-
-var valueToPay = desks *  650000M * (decimal)(1 - discount);
+    var valueToPay = CalculateValue(desks);
+    
 
     Console.WriteLine($"El valor a pagar es..: {valueToPay:C2}");
 
@@ -30,4 +17,24 @@ var valueToPay = desks *  650000M * (decimal)(1 - discount);
     } while (!options.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)));
 
 } while (answer!.Equals("s", StringComparison.CurrentCultureIgnoreCase));
+
+decimal CalculateValue(int desks)
+{
+    float discount;
+    if (desks < 5)
+    {
+        discount = 0.1f;
+    }
+    else if (desks < 10)
+    {
+        discount = 0.2f;
+    }
+    else
+    {
+        discount = 0.4f;
+    }
+
+    return desks * 650000M * (decimal)(1 - discount);
+}
+
 Console.WriteLine("Game over");
