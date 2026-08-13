@@ -13,7 +13,7 @@ do
     var registrationValue = CalculateRegistrationVaue(credits, creditValue, stratum);
     var subsidy = CalculateSubsidy(stratum);
 
-    Console.WriteLine($"Costo de la matricula........: {registrationValue:20,C2} ");
+    Console.WriteLine($"Costo de la matrícula........: {registrationValue:20,C2} ");
     Console.WriteLine($"Costo del subsidio...........: {subsidy:20,C2} ");
 
     do
