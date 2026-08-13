@@ -20,7 +20,9 @@
   <Folder Name="/07/">
     <Project Path="Discounts/Discounts.csproj" Id="61345207-8d5b-4bc4-b0d9-e09c7c7300ed" />
   </Folder>
-  <Folder Name="/08/" />
+  <Folder Name="/08/">
+    <Project Path="registration/RegistrationValue.csproj" Id="6a105f66-58e2-4abc-96f7-32b8ecf20e9b" />
+  </Folder>
   <Folder Name="/09/" />
   <Folder Name="/10/" />
   <Folder Name="/11/" />
