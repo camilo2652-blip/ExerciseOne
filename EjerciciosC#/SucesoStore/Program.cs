@@ -42,11 +42,13 @@ do
     var VR_P = GetValorProducto(CC, CA, CE, PDP);
     var VR_V = GetValorVenta(VR_P, TP);
 
-    Console.WriteLine($"{"Costo de almacenamiento".PadRight(81, '.')}: {CA,20:C2}");
-    Console.WriteLine($"{"Porcentaje de depreciación".PadRight(81, '.')}: {PDP,20:P2}");
-    Console.WriteLine($"{"Costo de exhibición".PadRight(81, '.')}: {CE,20:C2}");
-    Console.WriteLine($"{"Valor producto".PadRight(81, '.')}: {VR_P,20:C2}");
-    Console.WriteLine($"{"Medio de almacenamiento".PadRight(81, '.')}: {VR_V,20:C2}");
+    int ancho = 81;
+
+    Console.WriteLine($"{"Costo de almacenamiento".PadRight(ancho, '.')}: {CA,20:C2}");
+    Console.WriteLine($"{"Porcentaje de depreciación".PadRight(ancho, '.')}: {PDP,20:P2}");
+    Console.WriteLine($"{"Costo de exhibición".PadRight(ancho, '.')}: {CE,20:C2}");
+    Console.WriteLine($"{"Valor producto".PadRight(ancho, '.')}: {VR_P,20:C2}");
+    Console.WriteLine($"{"Medio de almacenamiento".PadRight(ancho, '.')}: {VR_V,20:C2}");
 
     do
     {
