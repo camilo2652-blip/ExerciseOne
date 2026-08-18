@@ -7,18 +7,47 @@ var options = new List<string> { "s", "n" };
 do
 {
     Console.WriteLine("*** DATOS DE ENTRADA ***");
-    var CC = ConsoleExtension.GetDecimal("Costo de compra ($)....................................................: ");
-    var TP = ConsoleExtension.GetValidOptions("Tipo de producto [P]erecedero, [N]o precedero.....................: ", ["p","n"]);
-    var TC = ConsoleExtension.GetValidOptions("Tipo de conservacion [F]rio, [A]mbiente...........................: ", ["f", "a"]);
-    var PC = ConsoleExtension.GetInt("Perido de conservación (días)..............................................: ");
-    var PA = ConsoleExtension.GetInt("Perido de almacenamiento (días)............................................: ");
-    var VOL = ConsoleExtension.GetInt("Volumen (litros)..........................................................: ");
-    var MA = ConsoleExtension.GetValidOptions("Medio de almacenamiento [N]evera, [C]ongelador,[E]estanteria, [G]uacal: ", ["n","c","e","g"]);
+    var CC = ConsoleExtension.GetDecimal("Costo de compra ($)..............................................................: ");
+    var tpOptions = new List<string> { "p", "n" };
+    var TP =string.Empty;
+    do
+    {
+        TP = ConsoleExtension.GetValidOptions("Tipo de producto [P]erecedero, [N]o perecedero...................................: ", tpOptions);
+    } while (!tpOptions.Any(x => x.Equals(TP, StringComparison.CurrentCultureIgnoreCase)));
+
+    var tcOptions = new List<string> { "f", "a" };
+    var TC = string.Empty;
+    do
+    {
+        TC = ConsoleExtension.GetValidOptions("Tipo de conservacion [F]rio, [A]mbiente..........................................: ", tcOptions);
+    } while (!tcOptions.Any(x => x.Equals(TC, StringComparison.CurrentCultureIgnoreCase)));
+
+    
+    var PC = ConsoleExtension.GetInt("Perido de conservación (días)....................................................: ");
+    var PA = ConsoleExtension.GetInt("Perido de almacenamiento (días)..................................................: ");
+    var VOL = ConsoleExtension.GetInt("Volumen (litros).................................................................: ");
+
+    var maOptions = new List<string> { "n", "c", "e", "g" };
+    var MA = string.Empty;
+    do
+    {
+        MA = ConsoleExtension.GetValidOptions("Medio de almacenamiento [N]evera, [C]ongelador,[E]estanteria, [G]uacal...........: ", maOptions);
+    } while (!maOptions.Any(x => x.Equals(MA, StringComparison.CurrentCultureIgnoreCase)));
+
+   
     Console.WriteLine("*** CÁLCULOS ***");
-    var CA= GetCostoALmacenamiento(CC, TC, PC, VOL);
+    var CA = GetCostoALmacenamiento(TP, CC, TC, PC, VOL);
     var PDP = GetPorcentajeDepreciacionDelProducto(PA);
-    var BR_V = GetValorVenta(TP, CC, CA, PDP);
-    var CE = GetCostoExhibicion(TP, TC, MA);
+    var CE = GetCostoExhibicion(TP, TC, MA, CA);
+    var VR_P = GetValorProducto(CC, CA, CE, PDP);
+    var VR_V = GetValorVenta(VR_P, TP);
+
+    Console.WriteLine($"Costo de almacenmaiento..........................................................: {CA,20:C2}");
+    Console.WriteLine($"Porcentaje de depreciación.......................................................:  {PDP,20:P2}");
+    Console.WriteLine($"Costo de exhibición..............................................................: {CE,20:C2}");
+    Console.WriteLine($"Valor producto...................................................................: {VR_P,20:C2}");
+    Console.WriteLine($"Costo de almacenmaiento..........................................................: {CA,20:C2}");
+    Console.WriteLine($"Medio de Almacenamiento..........................................................: {VR_V,20:C2}");
 
     do
     {
@@ -26,27 +55,88 @@ do
     } while (!options.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)));
 
 } while (answer!.Equals("s", StringComparison.CurrentCultureIgnoreCase));
-Console.WriteLine("Game over");
-
-decimal GetCostoExhibicion(string? tP, string? tC, string? mA)
-{
-    throw new NotImplementedException();
-}
-
-decimal GetValorVenta(string? tP, decimal cC, decimal cA, float pDP)
-{
-    throw new NotImplementedException();
-}
-
-float GetPorcentajeDepreciacionDelProducto(int pA)
-{
-    throw new NotImplementedException();
-}
-
-decimal GetCostoALmacenamiento(decimal CC, string? TC, int PC, int VOL)
-{
-    throw new NotImplementedException();
-}
 
 Console.WriteLine("Game over");
+
+
+decimal GetValorVenta(decimal VR_P, string? TP)
+{
+    if (TP!.Equals("p", StringComparison.CurrentCultureIgnoreCase))
+    {
+        return VR_P * 1.4m;
+    }
+    return VR_P * 1.2m;
+}
+
+decimal GetValorProducto(decimal CC, decimal CA, decimal CE, float PDP)
+{
+    return (CC + CA + CE) * (decimal)PDP;
+}
+
+
+decimal GetCostoExhibicion(string? TP, string? tC, string? MA, decimal CA)
+{
+   if (TP!.Equals("p", StringComparison.CurrentCultureIgnoreCase))
+    {
+        if (TP!.Equals("f", StringComparison.CurrentCultureIgnoreCase))
+        {
+            if (MA!.Equals("n", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return CA * 2;
+            }
+            return CA;
+        }
+    }
+    if (TP!.Equals("e", StringComparison.CurrentCultureIgnoreCase))
+    {
+        return CA * 0.05m; 
+    }
+        return CA * 0.07m;
+}
+
+
+
+float GetPorcentajeDepreciacionDelProducto(int PA)
+{
+    if (PA < 30)
+    {
+        return 0.95f;
+    }
+    return 0.85f;
+}
+
+decimal GetCostoALmacenamiento(string? TP, decimal CC, string? TC, int PC, int VOL)
+{
+    if (TP!.Equals("p", StringComparison.CurrentCultureIgnoreCase))
+    {
+        if (TC!.Equals("f", StringComparison.CurrentCultureIgnoreCase))
+        {
+            if (PC < 10)
+            { 
+                return CC * 0.05m;
+            }
+        return CC * 0.1m;
+        }
+
+        if (PC < 20)
+        {
+            return CC * 0.03m;
+        }
+        if (PC > 20)
+        {
+            return CC * 0.1m;
+        }
+        return CC * 0.05m;
+    }
+
+    if (VOL >= 50)
+    {
+        return CC * 0.1m;
+    }
+
+
+    return CC * 0.2m;
+}
+
+
 
