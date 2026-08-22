@@ -29,7 +29,9 @@
   <Folder Name="/10/">
     <Project Path="SucesoStore/SucesoStore.csproj" Id="358d7e69-cd9a-4a95-a210-b472b8206002" />
   </Folder>
-  <Folder Name="/11/" />
+  <Folder Name="/11/">
+    <Project Path="TransportCompany/TransportCompany.csproj" Id="e75aeb93-4bb2-49b9-9b75-cf530f633774" />
+  </Folder>
   <Folder Name="/12/" />
   <Folder Name="/13/" />
   <Folder Name="/14/" />
@@ -46,9 +48,14 @@
   <Folder Name="/25/" />
   <Folder Name="/26/" />
   <Folder Name="/27/" />
-  <Folder Name="/28/" />
+  <Folder Name="/28/">
+    <Project Path="TheStrongestBeam/TheStrongestBeam.csproj" Id="53d1b0d4-eb17-437a-bd56-f1ee391ef3bf" />
+  </Folder>
   <Folder Name="/29/" />
   <Folder Name="/30/" />
+  <Folder Name="/37/">
+    <Project Path="HorsesInConflict/HorsesInConflict.csproj" Id="224fe1c5-d597-4cc6-8d99-609b99a6b129" />
+  </Folder>
   <Folder Name="/Shared/">
     <Project Path="Shared/Shared.csproj" />
   </Folder>
