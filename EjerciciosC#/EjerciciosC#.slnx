@@ -38,7 +38,9 @@
   <Folder Name="/13/">
     <Project Path="Factorial/Factorial.csproj" Id="3413c35a-4993-4405-a0d6-6fb4fba5e6c2" />
   </Folder>
-  <Folder Name="/14/" />
+  <Folder Name="/14/">
+    <Project Path="Taylor/Taylor.csproj" Id="7db3f5ff-328d-4a94-b593-6f01c959b217" />
+  </Folder>
   <Folder Name="/15/" />
   <Folder Name="/16/" />
   <Folder Name="/17/" />
