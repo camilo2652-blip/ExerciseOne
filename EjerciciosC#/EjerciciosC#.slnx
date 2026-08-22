@@ -32,7 +32,9 @@
   <Folder Name="/11/">
     <Project Path="TransportCompany/TransportCompany.csproj" Id="e75aeb93-4bb2-49b9-9b75-cf530f633774" />
   </Folder>
-  <Folder Name="/12/" />
+  <Folder Name="/12/">
+    <Project Path="SumAndAverage/SumAndAverage.csproj" Id="bb05b1ae-d8e7-4fc1-8b2e-f0cb8d1dc19b" />
+  </Folder>
   <Folder Name="/13/" />
   <Folder Name="/14/" />
   <Folder Name="/15/" />
